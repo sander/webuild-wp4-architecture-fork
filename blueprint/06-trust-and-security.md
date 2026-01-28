@@ -4,17 +4,15 @@
 Relation to QTSP and Trust Registry.
 
 ## 6.2 Security Measures
-Signatures, authentication, revocation, key lifecycle.
+Signatures, authentication, key lifecycle.
 
+## 6.3 Revocation and Trust Status Framework
+In order to fulfill the Article 5 baseline established in [Revocation Mandate](../02-regulatory-alignment.md#revocation-mandate), the consortium has identified the following operational scenarios.
 
-
-### 6.2.X PID and EBWOID Revocation Scenarios
-A robust and harmonized revocation mechanism for PID and EBWOID is a critical component of the European Digital Identity Wallet ecosystem. This function is not merely a technicality; it is a fundamental pillar of trust, security, and legal compliance.
-
-The essential first step in designing a comprehensive and responsive revocation system is to identify and categorize all potential situations that necessitate the invalidation of a PID or EBWOID. This analysis ensures that the resulting framework can address a wide range of real-world events, from user-initiated requests to administrative actions and security incidents.
-
-#### 6.2.X.Y Common Triggers for PID and EBWOID Revocation
-Several revocation triggers are common to both natural persons (PID) and legal persons (EBWOID). These events form the core set of scenarios the system must be prepared to handle:
+A robust and harmonized revocation mechanism for  Personal Identification Data (PID) and European Business Wallet Owner Identification Data (EBWOID) is a critical component of the European Digital Identity Wallet ecosystem. 
+### 6.3.1 Operational Revocation Scenarios
+First we need to identify and categorize all potential situations that necessitate the invalidation of a PID or EBWOID. This analysis ensures that the resulting framework can address a wide range of real-world events, from user-initiated requests to administrative actions and security incidents. 
+<!-- TODO, categorize under Security and Unauthorized Access, Lifecycle and Inactivity Management, Compliance and Service Terms and End-of-Life Events? -->
 
 * **Explicit User Request:** A direct request from the user or an authorized representative to revoke their data.
    * _Example: A change in ownership of a company could be a reason for authorized representatives to revoke the EBWOID._
@@ -46,30 +44,20 @@ Several revocation triggers are common to both natural persons (PID) and legal p
   * _Example EBWOID: Termination or dissolution of the legal entity/busienss activity such as liquidation of a company._
 
 
+#### 6.3.2 Provider Obligations
+To maintain a trusted ecosystem, PID and EBWOID providers agree to:
+  * Publish clear policies: Tell the public exactly when and how you revoke data.
+  * Own the Authority: Only the original issuer can revoke the data they issued.
+  * Notify users fast: If data is revoked, the user must be told why within 24 hours via a secure channel.
+  * Be Irreversible: Once identity data is revoked, it stays revoked to prevent fraud.
 
-### 6.2.X Regulatory and Policy Framework: Article 5 Obligations
-All activities and deliverables under this task are anchored in the legal framework established by the European Union. Specifically, Regulation (EU) 2024/2977 provides the legal requirements for the EUDI Wallet ecosystem. Article 5 of this regulation, titled “Revocation of personal identification data”, sets forth the foundational obligations for the revocation of personal identification data, establishing the non-negotiable legal baseline that this project will implement.
+#### 6.3.3 Conditions for Mandatory Revocation
+According to the rules, a provider must hit the revocation button without delay if:
+ * The user explicitly asks for it.
+ * The security of the wallet app itself (the unit certificate) is compromised.
+ * Any of the specific situations defined in the provider's public policy occur.
 
-#### 6.2.X.Y Provider Obligations
-The regulation places several key obligations on providers to ensure a transparent, secure, and reliable revocation process.
-
-    1. Public Revocation Policies Providers are required to publish clear, written, and publicly accessible policies detailing their procedures for managing validity status and the specific conditions under which data will be revoked.
-    2. Exclusive Revocation Authority The authority to revoke data is strictly limited. Only the provider that originally issued the PID or LPID is permitted to revoke it.
-    3. Timely User Notification Following a revocation, providers must inform the affected user within 24 hours through a secure channel. The notification must be concise, easily accessible, and explain the reasons for the revocation in simple and clear language.
-    4. Public Validity Status Providers must make the validity status of issued data publicly available. This requires the design of a highly-available, low-latency service endpoint, likely employing mechanisms like OCSP or CRLs, that can be queried without compromising user privacy through correlatable requests.
-    5. Irreversibility Once data has been revoked, the action cannot be undone. This ensures finality and prevents the re-use of credentials that have been declared invalid.
-    
-#### 6.2.X.Y Conditions for Mandatory Revocation
-Article 5, Paragraph 4, specifies the circumstances under which a provider is required to execute a revocation without delay:
-    
-  * Upon an explicit request from the wallet user to whom the data was issued.
-  * If the wallet unit certificate associated with the issued data has been revoked.
-  * In other specific situations defined by the provider within their publicly available policies.
-    
-These legal mandates define what must be done. The next step is to address the practical challenges of how to implement these rules across the diverse technical and organizational landscapes of the Member States.
-
-
-## 6.3 Governance Responsibilities
+## 6.4 Governance Responsibilities
 Who owns what in the consortium.
 
 
