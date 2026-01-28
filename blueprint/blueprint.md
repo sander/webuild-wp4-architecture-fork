@@ -5,6 +5,7 @@ Each section is maintained as a standalone Markdown file, it is not meant to be 
 {% include_relative 01-executive-summary.md %}
 
 ## Table of Contents
+- TOC
 {:toc}
 
 {% include_relative 02-regulatory-alignment.md %}
