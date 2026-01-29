@@ -1,9 +1,9 @@
-# 7. ADR & Conformance Governance Model
+# ADR & Conformance Governance Model
 <!-- Information mainly from "ADR and CS aligment.pdf" in the portal and texts in repo -->
 In a project as large as WE BUILD, we face a constant challenge: how do we ensure that a wallet built by one organization can actually "talk" to a service in another without every developer having to attend every single meeting?
 To stay synchronized, we use a technical governance model that relies on consensus, commitment, and clear documentation. We don not make technical choices in a vacuum; we base them on what the 13 use cases actually need to function.
 
-## 7.1 The Architectureal Decision Record (ADR)
+## The Architectureal Decision Record (ADR)
 [The Architectural Decision Record (ADR)](https://github.com/webuild-consortium/wp4-architecture/tree/main/adr) is essentially our project’s "logbook" for major decisions.
 - Purpose: The ADR process is where we formally capture and justify significant technical choices - like which specific protocols and formats to use. Instead of having these decisions buried in a slide deck or a long email chain, we document the rationale and context so that everyone can understand the "Why" behind a choice.
 - Classification: We maintain a lightweight ADR for any software-related decision that affects how different systems work together (interoperability). This ensures we stay aligned with external rules like the eIDAS Regulation and the EUDI Architecture Reference Framework (ARF).
@@ -12,7 +12,7 @@ To stay synchronized, we use a technical governance model that relies on consens
 <!-- TODO Remove mermaid until I have fixed it in Pages - insert temp picture-->
 ![ADR](../images/ADR_temp.png)
 
-## 7.2 WE BUILD Conformance Specifications (WBCS)
+## WE BUILD Conformance Specifications (WBCS)
 If the ADR is the "Why," the [WE BUILD Conformance Specifications (WBCS)](https://github.com/webuild-consortium/wp4-architecture/tree/main/conformance-specs) are the "How".
 - Operationalizing Intent: We use the WBCS to turn high-level architectural goals into detailed technical rules. These specifications define the exact interfaces for wallets, issuers, and verifiers.
 - A Commitment to Implement: This is the most important part: An approved WBCS is **not just a suggestion**. When a specification is approved, it signifies a commitment from the participating organizations to actually build that interface into their services.
@@ -21,7 +21,7 @@ If the ADR is the "Why," the [WE BUILD Conformance Specifications (WBCS)](https:
 ![CS Process and Roles](../images/WPRoles.png)
 <!-- TODO: Change image to fit the document -->
 
-## 7.3 Document Lifecycle
+## Document Lifecycle
 WE BUILD moves fast, and our documentation needs to keep up. We don't wait for "perfect" documents; we iterate as the use cases mature.
 - The Blueprint as a Living Framework: This Blueprint (D4.1) sets the high-level structure, but it is supported by the more agile ADRs and WBCS that live on GitHub. As we learn, we update these records and specifications.
 - The Hybrid Working Flow: To keep things moving, we use a "hybrid" approach to our document lifecycle:
