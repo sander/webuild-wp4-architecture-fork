@@ -75,10 +75,12 @@ The following risks need to be addressed:
   They may be tempted to instead mold the well-known OpenID4VC protocols to use cases that are better suited for QERDS.
   To address this risk, WP4 Architecture group members and in particular Use Case Sync Leads are expected to learn about QERDS and guide the use cases in determining applicability.
 - The QERDS requires several cross-group implementations.
-  To reduce interoperability risks, the WP4 QTSP group should specify at least two [Conformance Specifications](https://github.com/webuild-consortium/wp4-architecture/blob/main/conformance-specs/README.md) in consultation with stakeholder groups:
-    - EBW-to-QERDS
-    - QTSP-to-QTSP for QERDS
-    - (if use cases need it) EUDIW-to-QERDS
+  To reduce interoperability risks, the WP4 QTSP group should:
+    - specify at least two [Conformance Specifications](https://github.com/webuild-consortium/wp4-architecture/blob/main/conformance-specs/README.md) in consultation with stakeholder groups:
+        - EBW-to-QERDS;
+        - QTSP-to-QTSP for QERDS;
+        - (if use cases need it) EUDIW-to-QERDS;
+    - work with the WP4 Testing group to perform testing using these Conformance Specifications on the [Interoperability Test Bed](https://github.com/webuild-consortium/wp4-interop-test-bed).
 
 ## Advice
 
