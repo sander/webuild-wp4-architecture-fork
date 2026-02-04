@@ -10,8 +10,8 @@ Modularity, standardization, versioning.
 
 ### General PID issuing process
 This chapter describes the general PID issuing process in a sequence diagram.
-<!-- 
-TODO - how do we make texts like this look nice?
+ 
+<!--TODO - how do we make texts like this look nice?-->
 <strong>Description</strong>
 1) The user installs the app from a trusted and official app store
 2) During installation, the OS checks the integrity of the app by comparing hash and signature of the app to the one provided by the store
@@ -38,7 +38,7 @@ TODO - how do we make texts like this look nice?
 23) PID Issuer seals the PID
 24) PID Issuer sends PID to Wallet App via OpenID4VCI
 25) Optional: User accepts the PID in the Wallet App
-26) In some cases the PID can be stored server-side (Wallet Provider)-->
+26) In some cases the PID can be stored server-side (Wallet Provider)
 
 ![General PID issuing process ](04-files/PID-issuing.png "PID Issuing")
 
