@@ -1,7 +1,7 @@
 # Regulatory and Foundational Alignment
 The WE BUILD project is anchored in a  legal framework designed to reduce administrative burdens and strengthen the Single Market. Our architectural choices are driven by two key mandates: [Regulation (EU) 2024/1183](https://eur-lex.europa.eu/eli/reg/2024/1183/oj/eng) for natural persons and the [European Business Wallet proposal](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A52025PC0838) for economic operators.
 
-Technical development follows mandatory rules such as the Article 5 revocation requirements and the "Business-Wallet-by-Default" principle, ensuring our infrastructure supports future Union initiatives. 
+Technical development follows mandatory rules such as the Article 5 revocation requirements and the "Business-Wallet-by-Default" principle, ensuring our infrastructure supports future initiatives. 
 
 ## Normative References
 [To be added]
