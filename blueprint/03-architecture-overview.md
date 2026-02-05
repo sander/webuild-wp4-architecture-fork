@@ -3,7 +3,7 @@
 ## The Ecosystem at a Glance
 The EU digital identity and EU business wallet ecosystem is an instance of the 3 party model for attestations. In this model there are 4 main actors:
 1. The holder, aka the identity wallet that is controlled by either a natural or legal person
-2. The isssuer that relies on authentic sources of information to issue VDCs to the holder/wallet
+2. The issuer that relies on authentic sources of information to issue attestations to the holder/wallet
 3. The verifier receives an attestation based on information present in the wallet.
 4. The trust framework that in the EU ecosystems is based on ETSI TS 119604/119612 aka trust status lists populated by trust status providers that for some use cases are QTSPs
 
