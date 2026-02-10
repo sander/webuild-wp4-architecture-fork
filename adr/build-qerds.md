@@ -32,18 +32,18 @@ Key assumptions are:
 For EBW-to-QERDS communication, there does not yet seem to exist a common protocol and the WP4 Architecture group has discussed various ideas.
 
 For communication between QERDS providers, the reference standard [EN 319 522-4-1](https://www.etsi.org/deliver/etsi_en/319500_319599/3195220401/01.02.01_60/en_3195220401v010201p.pdf) specifies bindings based on AS4 (HTTP-based protocol in [ISO 15000-2:2021](https://www.iso.org/standard/79109.html), [OASIS Standard](https://docs.oasis-open.org/ebxml-msg/ebms/v3.0/profiles/AS4-profile/v1.0/os/AS4-profile-v1.0-os.html)) or email.
-The AS4 standard is widely used in EU legislation and implementations such as Peppol using the [eDelivery AS4] building block.
+The AS4 standard is referenced in EU legislation and implementations such as Peppol using the [eDelivery AS4] building block. Other protocols that follow the same architectural model exist (cf below).
 
 [eDelivery AS4]: https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467110114/eDelivery
 
-Even though AS4 may have post-quantum cryptography deployment issues, due to its use of XML Digital Signature and XML Encryption, it can be a useful starting point for WE BUILD testing and piloting.
-Due to the use of the 4-corner model or extended model, from the EBW or use case implementer’s perspective, the communication between QERDS providers can be considered an implementation detail that may evolve at a different pace.
+The AS4 protocol is based on XML signature and encryption and as such suffers from the same challenges that all XML-based protocols have wrt post-quantum safety. There is no current effort in any standards development organization to propose post-quantum algorithms for XML signatures or key agreement/encryption. This means that the effective lifetime of a solution based on AS4 is limited to a maximum of 6 or 7 years from the required go-live date for the EU business wallet.
+The 4-corner model of the AS4 architecture provides a way to introduce an abstraction layer towards the QERDS which means that in principle it is possible to replace the underlying QERDS protocol in the future although such a task would present signifficant challenges in practice.
 
 The following alternatives were considered:
 
-- [OpenID4VC](https://openid.net/sg/openid4vc/) and [ISO/IEC 18013-7](https://www.iso.org/standard/91154.html) also provide messaging to and from wallets, but only in the case of “verifiable credentials”, and the protocols are optimised for interactive connections without standardised evidence records.
-- [DIDComm](https://identity.foundation/didcomm-messaging/spec/v2.1/) also provides messaging between wallets, but not using EU standards.
-- Alternatively, use cases could specify ad hoc APIs between the systems of various natural and legal persons. However, this means that each ad hoc API brings additional work of specifying connectivity and security requirements, and dealing with technical challenges that are already solved with eDelivery.
+- [OpenID4VC](https://openid.net/sg/openid4vc/) and [ISO/IEC 18013-7](https://www.iso.org/standard/91154.html) are standards for receiving credentials into and generating and presenting proofs from the EUDI wallet. These protocols are well suited for flows that involve user interaction but are more difficult to adapt to flows that involve automated systems or agents.
+- [DIDComm](https://identity.foundation/didcomm-messaging/spec/v2.1/) is conceptually quite similar to AS4 and has many benefits including a better path towards quantum safe signatures and encryption than an XML-based protocol has at this point. The downside of this alternative is that the standards need to be profiled for use in the EU, eg to reference existing trust infrastructure.
+- Alternatively, a new suite of protocols could be developed that fulfill the expected requirements of the EUBW such as suitability for automation and agents, compatibility with the EUDI natural person wallet etc. There are several options that could serve as a modern starting point for such work including the matrix protocol, activitypub, etc.
 
 ## Decision
 
@@ -60,13 +60,14 @@ If use cases require gateways to the designated QERDS, in principle the use case
 
 Testing and piloting with a designated QERDS makes it easier:
 
-- To exchange messages (documents, including electronic attestations of attributes, and notifications, including requests) between EBWs, without the need for web-based user interaction.
+- To implement use-cases for the EUBW that requires automation and/or agent-based access.
 - To connect with organisations responsible for authentic sources for the retrieval and/or verification of attributes, which is necessary for the issuance of qualified electronic attestations of attributes (see [Feature: Verification of attributes](https://github.com/webuild-consortium/wp4-qtsp-group/blob/main/docs/qeaa/verification.feature.md)).
 - To develop the QERDS aspect of the envisioned EBW ecosystem, using the WE BUILD ecosystem and its Interoperability Test Bed to provide a meaningful and collaborative context.
 
-It becomes more difficult:
+Open issues
 
-- To provide full end-to-end encryption: while OpenID4VC and mdoc protocols are designed with it from the start, the QERDS may require additional work to protect protocol metadata.
+- Adapting e2e encryption in the 4 corner model to the EUBW
+- Support hardware bound credentials and differentiated level of assurance
   The WP4 Architecture group can provide the necessary design competence.
 
 The following risks need to be addressed:
