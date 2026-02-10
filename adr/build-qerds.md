@@ -48,12 +48,12 @@ The following alternatives were considered:
 
 ## Decision
 
-WE BUILD tests and pilots a designated QERDS:
+WE BUILD tests and pilots a designated QERDS, with the following responsibilities:
 
-- provided by the WP4 QTSP group, with interoperability using a common API;
-- taking [(EU) 2025/1944] and [eDelivery AS4] as a starting point for the security requirements and for the common API between QTSPs;
-- implemented in wallet solutions by the WP4 Wallets group using a common API, to be specified by the WP4 QTSP group;
-- supported by a WE BUILD Digital Directory, provided by the WP4 Trust Registry Infrastructure group.
+- WP4 Trust Registry Infrastructure group establishes a WE BUILD Digital Directory aligned with the EU Digital Directory standards.
+- WP4 QTSP group, in consultation with WP4 Architecture and WP4 Wallet Providers groups, specifies an optional API access protocol as an abstraction layer between the wallet and the QERDS.
+- WP4 QTSP group facilitates pilots using [(EU) 2025/1944] and [eDelivery AS4].
+- WP4 Architecture and WP4 QTSP groups jointly evaluate the requirements for a potential “AS5” alternative QERDS protocol, based on the needs of WP2/WP3 use cases.
 
 If use cases require gateways to the designated QERDS, in principle the use cases are responsible for providing those gateways.
 
