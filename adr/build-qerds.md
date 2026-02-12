@@ -24,7 +24,7 @@ It is expected that WE BUILD implementation experience can contribute to the spe
 
 Key assumptions are:
 
-- the use of the European Digital Directory (EBW Article 10) for access point discovery;
+- the use of the European Digital Directory (EBW Article 10) for identification (looking up EUIDs), discovery (finding networks and capabilities), and connections (retrieving protocol and endpoint information including public keys);
 - the ability for multiple qualified trust service providers to federatively provide the QERDS;
 - the application of architecture models from the reference standard [EN 319 522-1](https://www.etsi.org/deliver/etsi_en/319500_319599/31952201/01.02.01_60/en_31952201v010201p.pdf):
     - 4-corner model (§ 4.3) for EBW-to-EBW exchange;
