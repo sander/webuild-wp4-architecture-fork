@@ -1,4 +1,4 @@
-# Appendix B – Glossary
+# Appendix C – Glossary
 
 ## Terms and Definitions
 
