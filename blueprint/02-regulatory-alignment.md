@@ -10,7 +10,30 @@ The WE BUILD consortium will anchor its work in the eIDAS legal framework - [Reg
 In practical terms, WE BUILD will rely on the EUDIW framework’s core policy commitments: enabling users to authenticate and present identity and attributes in a legally recognised manner, while ensuring that users retain control over data sharing (including selective disclosure and user consent as the operating principle). 
 
 
-The Regulation is operationalized through several packages of Commission implementing regulations that harden the technical and governance requirements into enforceable rules. In the first batch (of 28 November 2024), the Commission adopted five implementing regulations, including 2024/2979 (integrity and core functionalities), 2024/2982 (protocols and interfaces), 2024/2977 (PID and electronic attestations of attributes), 2024/2981 (certification framework), and 2024/2980 (notification obligations within the Wallet ecosystem). It is to note that these wallet-technical implementing regulations are reflected in (and subject to updates amending) Commission Implementing Regulations (EU) 2024/2977, 2024/2979, 2024/2980 and 2024/2982 (as referenced in its “standards and technical specifications” update initiative). 
+The Regulation is operationalized through several packages of Commission implementing regulations that harden the technical and governance requirements into enforceable rules. 
+
+** Core wallet architecture and technical framework **
+  - [2024/2979 – Integrity and core functionalities](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402979)
+  - [2024/2982 – Protocols and interfaces](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402982)
+  - [2024/2981 – Certification framework](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402981)
+  - [2024/2980 – Notification obligations within the Wallet ecosystem](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402980)
+
+** Person Identification Data (PID) and Electronic Attestations of Attributes (EAA) **
+  - [2024/2977 – PID and electronic attestations of attributes](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202402977)
+  - [2025/1569 – Electronic attestations of attributes](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202501569)
+
+** Wallet ecosystem governance and relying parties **
+  - [2025/848 – Registration of wallet-relying parties](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202500848)
+  - [2025/849 – Submission of information on certified European Digital Identity Wallets](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202500849)
+  - [2025/847 – Reactions to Wallet security breaches](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202500847)
+  - [2025/846 – Cross-border identity matching for natural persons](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202500846)
+
+** Trust services and QSCD framework **
+  - [2025/1566 – Verification of identity and attributes (QTSs)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202501566)
+  - [2025/1567 – rQSCD management](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202501567)
+  - [2025/1570 – Notification of certified or cancelled QSCDs](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202501570)
+  - [2025/1572 – QTSP initiation, notification and verification](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202501572)
+
 In the second batch (of 6 May 2025), four implementing regulations were adopted, namely: 2025/848 (registration of wallet-relying parties), 2025/849 (submission of information to the Commission and to the Cooperation Group for the list of certified European Digital Identity Wallets), 2025/847 (reactions to Wallet security breaches), and 2025/846 (cross-border identity matching for natural persons). 
 
 ## EUBW Framework
