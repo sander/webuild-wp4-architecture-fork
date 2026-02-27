@@ -43,12 +43,12 @@ WE BUILD will take the next step: wallets will become the user-facing endpoints 
 ### Technical flow (WE BUILD high-level)
 WE BUILD will follow the QERDS architecture decomposition and the 4-corner delivery pattern:
 1) Sender identification and authentication will be performed at the sender’s QTSP (wallet-driven).
-2) Message submission will be performed from the sender wallet to the sender QERDS (QTSP A).
-3) Discovery of the recipient’s QERDS endpoint and capabilities will be performed via common services (e.g., the European Digital Directory in accordance with the EUDI Wallet ARF).
+2) Message submission will be performed from the sender’s wallet or connected backend system to the sender QERDS (QTSP A).
+3) Discovery of the recipient’s QERDS endpoint and capabilities will be performed via common services (e.g., the WE BUILD Digital Directory, simulating the EU Digital Directory from the European Business Wallet proposal).
 4) Handshake and relay will be performed between QTSP A and QTSP B (QERDS-to-QERDS interoperability) and will be based on ETSI EN 319 522.
 5) Recipient notification will be issued, followed by recipient authentication being performed at QTSP B.
-6) Consignment and handover of the message and its metadata will be performed to the recipient wallet.
-7) Evidence will be made accessible to sender and recipient wallets (submission/dispatch and receipt/consignment or non-delivery). Evidence will not necessarily be pushed; it will be stored and retrievable on demand, protected by qualified sealing and, where required, qualified timestamping.
+6) Consignment and handover of the message and its metadata will be performed to the recipient’s wallet or connected backend system.
+7) Evidence will be made accessible to sender and recipient wallets (submission/dispatch and receipt/consignment or non-delivery). Evidence will be protected by qualified sealing and, where required, qualified timestamping. Where applicable, the evidence can be pushed to the sender’s and the recipient’s backend systems as well.
 
 #### Scaling to the EU Business Wallet: “reliable access points”
 For the EU Business Wallet, the planned approach will position QERDS as a designated network of reliable access points: businesses and businesses with governments will interact across the EU by connecting their wallets to a chosen access point/QERDS provider, while interoperability will ensure end-to-end reachability without vendor lock-in. WE BUILD’s future implementation will pilot this “delivery layer” so that EBW-to-EBW and EBW-to-government messaging will reuse the same secure channel principles: mutual authentication, end-to-end integrity and confidentiality, interoperability across access points, and, when needed, timestamped evidence.
