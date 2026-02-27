@@ -50,5 +50,4 @@ WE BUILD will follow the QERDS architecture decomposition and the 4-corner deliv
 6) Consignment and handover of the message and its metadata will be performed to the recipient’s wallet or connected backend system.
 7) Evidence will be made accessible to sender and recipient wallets (submission/dispatch and receipt/consignment or non-delivery). Evidence will be protected by qualified sealing and, where required, qualified timestamping. Where applicable, the evidence can be pushed to the sender’s and the recipient’s backend systems as well.
 
-#### Scaling to the EU Business Wallet: “reliable access points”
 
