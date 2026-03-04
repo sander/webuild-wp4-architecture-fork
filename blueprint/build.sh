@@ -80,16 +80,16 @@ echo >> ${TMP_FILE}
 cat main.adoc >> ${TMP_FILE}
 mv ${TMP_FILE} main.adoc
 
-ASCIIDOC_ARGS="-r asciidoctor-diagram -a allow-uri-read -a toc=left --doctype article --verbose"
+ASCIIDOC_ARGS="-r asciidoctor-diagram -a allow-uri-read --doctype article --verbose"
 
 # Set SVG output mode for Mermaid diagrams
 sed -e 's/\[mermaid\]/[mermaid, format=svg]/g' main.adoc > main-svg.adoc
 
 echo "Generating HTML..."
-asciidoctor ${ASCIIDOC_ARGS} main-svg.adoc -o blueprint.html
+asciidoctor ${ASCIIDOC_ARGS} -a toc=left -a stylesheet=asciidoctor.css main-svg.adoc -o blueprint.html
 
 echo "Generating PDF..."
-asciidoctor-pdf ${ASCIIDOC_ARGS} main.adoc --out-file blueprint.pdf
+asciidoctor-pdf ${ASCIIDOC_ARGS} -a toc=auto main.adoc -a pdf-theme=pdf -a pdf-themesdir=. -a title-page=true --out-file blueprint.pdf
 
 mkdir -p ../build_outputs_folder/blueprint
 cp blueprint.html ../build_outputs_folder/blueprint/blueprint.html
