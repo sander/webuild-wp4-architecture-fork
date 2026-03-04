@@ -21,6 +21,10 @@ function setup() {
     sudo chmod 4755 $CHROME_DEVEL_SANDBOX
 }
 
+function indent_headers() {
+    sed -e 's/^#### /##### /g' | sed -e 's/^### /#### /g' | sed -e 's/^## /### /g' | sed -e 's/^# /## /g'
+}
+
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 export CHROME_DEVEL_SANDBOX=$(realpath -m chrome/linux-145.0.7632.46/chrome-linux64/chrome_sandbox)
@@ -70,6 +74,14 @@ cat appendix-trust-ecosystem.md >> main.md
 echo >> main.md
 cat appendix-ebw-definition.md >> main.md
 
+# ADR appendix, gathers all ADRs
+echo >> main.md
+cat appendix-adr.md >> main.md
+for ADR in trusted-lists.md base-protocols.md document-formats.md basic-lpid.md wallet-unit-lifecycle-management.md build-qerds.md basic-lpid.md; do
+    echo >> main.md
+    cat ../adr/${ADR} | indent_headers | indent_headers >> main.md
+done
+
 echo "Running kramdoc..."
 kramdoc --auto-ids --heading-offset 1 main.md -o main.adoc
 
@@ -80,7 +92,7 @@ echo >> ${TMP_FILE}
 cat main.adoc >> ${TMP_FILE}
 mv ${TMP_FILE} main.adoc
 
-ASCIIDOC_ARGS="-r asciidoctor-diagram -a allow-uri-read --doctype article --verbose"
+ASCIIDOC_ARGS="-r asciidoctor-diagram -a allow-uri-read --doctype article --verbose -a toclevels=3"
 
 # Set SVG output mode for Mermaid diagrams
 sed -e 's/\[mermaid\]/[mermaid, format=svg]/g' main.adoc > main-svg.adoc
