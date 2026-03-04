@@ -31,8 +31,6 @@ fi
 
 . .venv/bin/activate
 
-echo '# WE BUILD – Architecture & Integration Blueprint (D4.1)' > main.md
-
 rm -f main-body.md
 cat 01-executive-summary.md >> main-body.md
 echo >> main-body.md
@@ -56,6 +54,8 @@ echo >> main-body.md
 rm -f main-body-enum.md
 markdown-enum main-body.md 1 main-body-enum.md
 
+rm -f main.md
+
 cat main-body-enum.md >> main.md
 
 echo >> main.md
@@ -71,23 +71,29 @@ echo >> main.md
 cat appendix-ebw-definition.md >> main.md
 
 echo "Running kramdoc..."
-kramdoc --auto-ids main.md -o main.adoc
+kramdoc --auto-ids --heading-offset 1 main.md -o main.adoc
 
-ASCIIDOC_ARGS="-r asciidoctor-diagram -a allow-uri-read -a toc=left --doctype book --verbose"
+# Prepend title to fix header level and TOC placement
+TMP_FILE=$(mktemp)
+echo '= WE BUILD -- Architecture & Integration Blueprint (D4.1)' >> ${TMP_FILE}
+echo >> ${TMP_FILE}
+cat main.adoc >> ${TMP_FILE}
+mv ${TMP_FILE} main.adoc
+
+ASCIIDOC_ARGS="-r asciidoctor-diagram -a allow-uri-read --doctype article --verbose"
 
 # Set SVG output mode for Mermaid diagrams
 sed -e 's/\[mermaid\]/[mermaid, format=svg]/g' main.adoc > main-svg.adoc
 
 echo "Generating HTML..."
-asciidoctor ${ASCIIDOC_ARGS} main-svg.adoc -o blueprint.html
+asciidoctor ${ASCIIDOC_ARGS} -a toc=left -a stylesheet=asciidoctor.css main-svg.adoc -o blueprint.html
 
-# echo "Generating PDF..."
-# asciidoctor-pdf ${ASCIIDOC_ARGS} main.adoc --out-file blueprint.pdf
+echo "Generating PDF..."
+asciidoctor-pdf ${ASCIIDOC_ARGS} -a toc=auto main.adoc -a pdf-theme=pdf -a pdf-themesdir=. -a title-page=true --out-file blueprint.pdf
 
 mkdir -p ../build_outputs_folder/blueprint
 cp blueprint.html ../build_outputs_folder/blueprint/blueprint.html
+cp blueprint.pdf ../build_outputs_folder/blueprint/blueprint.pdf
 for IMAGE in $(find . -maxdepth 1 -name "*.png") $(find . -maxdepth 1 -name "*.svg") $(find . -maxdepth 1 -name "*.jpg"); do
     cp ${IMAGE} ../build_outputs_folder/blueprint/
 done
-
-# cp blueprint.pdf ../build_outputs_folder/blueprint/blueprint.pdf
