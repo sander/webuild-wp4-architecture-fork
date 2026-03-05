@@ -94,7 +94,7 @@ Both approaches are compatible with the architectural patterns described in the 
 This section aligns with the WP4 interoperability baselines defined for issuance and presentation flows. Proximity-based signing scenarios are currently outside the baseline protocol scope of the WE BUILD pilots.
 
 ### Wallet-centric Signing Model
-In the wallet-centric model, the EUDI Wallet is the central component of the electronic signature process. Three distinct signing processes are considered, depending on where the Signature Creation Application (SCA), runs and where signature creation takes place. 
+In the wallet-centric model, the EUDI Wallet is the central component of the electronic signature process. Three distinct signing processes are considered, depending on where the Signature Creation Application (SCA) runs and where the Signature Creation Device (SCD) is hosted. 
 
 #### 1) Remote Signing with External SCA  
 The user initiates signing from the wallet, while the SCA is external. The document is sent to the external SCA for review and consent, after which the signing request is forwarded to a remote Signature Creation Device (SCD) that creates the signature and returns the result.
