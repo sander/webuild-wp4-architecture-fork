@@ -19,7 +19,7 @@ WE BUILD focuses in particular on the European Business Wallet (EBW). The EBW is
 
 ### Bridging ARF Gaps through Specifications and Testing
 
-The future EUDI ecosystem is defined through the  [Architecture Reference Framework (ARF)](https://eudi.dev/latest/architecture-and-reference-framework-main/). However, the ARF is still evolving and does not yet cover every detail needed for complex implementation scenarios. In the WE BUILD pilot environment, the full certification and qualification schemes used in production cannot always be applied.
+The future EUDI ecosystem is defined through the [Architecture Reference Framework (ARF)](https://eudi.dev/latest/architecture-and-reference-framework-main/). However, the ARF is still evolving and does not yet cover every detail needed for complex implementation scenarios. In the WE BUILD pilot environment, the full certification and qualification schemes used in production cannot always be applied.
 
 To address these gaps, WE BUILD defines project-specific implementation rules through: 
 - [WE BUILD Conformance Specifications (WBCS)](https://github.com/webuild-consortium/wp4-architecture/tree/main/conformance-specs) – technical rules that implementations must follow.
