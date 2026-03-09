@@ -96,17 +96,17 @@ This section aligns with the WP4 interoperability baselines defined for issuance
 ### Wallet-centric Signing Model
 In the wallet-centric model, the EUDI Wallet is the central component of the electronic signature process. Three distinct signing processes are considered, depending on where the Signature Creation Application (SCA) runs and where the Signature Creation Device (SCD) is hosted. 
 
-#### 1) Remote Signing with External SCA  
+#### Remote Signing with External SCA
 The user initiates signing from the wallet, while the SCA is external. The document is sent to the external SCA for review and consent, after which the signing request is forwarded to a remote Signature Creation Device (SCD) that creates the signature and returns the result.
 
 ![Remote signing with external SCA](../images/remote-sign-ext-sca.png)
 
-#### 2) Remote Signing with Local SCA (Wallet as SCA)  
+#### Remote Signing with Local SCA (Wallet as SCA)
 The user initiates signing from the wallet, which also acts as the SCA. The document is presented to the user within the wallet for review and consent. After approval, the wallet forwards the signing request to a remote SCD that produces the signature and returns the result.
 
 ![Remote signing with local SCA](../images/remote-sign-local-sca.png)
 
-#### 3) Local Signing  
+#### Local Signing
 The user initiates signing from the wallet, which also acts as the Signature Creation Application (SCA). The document is presented to the user within the wallet for review and consent. After approval, the signature is created locally using a SCD integrated in the user’s device.
 
 ![Local signing](../images/local-sign.png)

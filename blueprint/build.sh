@@ -139,3 +139,7 @@ cp blueprint.pdf ../build_outputs_folder/blueprint/blueprint.pdf
 for IMAGE in $(find . -maxdepth 1 -name "*.png") $(find . -maxdepth 1 -name "*.svg") $(find . -maxdepth 1 -name "*.jpg"); do
     cp ${IMAGE} ../build_outputs_folder/blueprint/
 done
+if [ -d "../images" ]; then
+    rm -rf ../build_outputs_folder/images/
+    cp -R ../images ../build_outputs_folder/
+fi
