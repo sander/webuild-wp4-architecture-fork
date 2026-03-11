@@ -81,7 +81,7 @@ The diagram below provides a concept-level view of the EUDI Wallet ecosystem for
           direction LR
           WIC["Wallet Instance&nbsp;&nbsp;"]
           WIT["Wallet Instance (External)&nbsp;&nbsp;"]
-          WIA["WIA / WTE&nbsp;&nbsp;"]
+          WIA["WIA / WUA&nbsp;&nbsp;"]
       end
 
       %% Type relationships (solid)
