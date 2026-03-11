@@ -8,7 +8,6 @@ The EU digital identity and EU business wallet ecosystem is an instance of the 3
 3. The verifier receives an attestation based on information present in the wallet.
 4. The trust framework that in the EU ecosystems is based on ETSI TS 119604/119612 aka trust status lists populated by trust status providers that for some use cases are QTSPs
 
-
 The EU ecosystem for the natural person wallet is described in more detail in [ARF]. The corresponding document for the EU legal person wallet is in progress.
 
 Several sources exist for describing the more general 3rd-party model, including ongoing work in the IETF eg [https://datatracker.ietf.org/doc/draft-ietf-spice-vdcarch/]
@@ -48,14 +47,20 @@ graph LR;
   recipient-->QTSP/QERDS;
 ```
 
-The sender and recipient can exchange documents such as electronic attestations of attributes and notifications. In some cases, senders and recipients can take the issuer-holder-verifier roles as illustrated above.
+## Wallet Types in WE BUILD 
 
-## Common Rules for Everyone
-Security, error handling, auditability, portability.
+WE BUILD supports wallet solutions for both natural persons and economic operators.
 
-## Wallet Implementation Models 
-To be authored by Wallet Group. Describes the techn stacks, such as cloud-based vs. device-based solutions, and the differences between EUDIW for Natural Person and European Business Wallets for  economic operators.
-### The EUDI Wallet for Natural Person
-To come: [Issue 63](https://github.com/webuild-consortium/wp4-architecture/issues/63) will produce concept model in collaboration with Wallet Group.
-### The Business Wallet for Economic Operators
-To come: [Issue 63](https://github.com/webuild-consortium/wp4-architecture/issues/63) will produce concept model in collaboration with Wallet Group.
+Natural persons interact through EUDI Wallets, which enable individuals to authenticate and present personal identity attributes. Economic operators interact through EBW, which enable organisations to manage and present business-related attestations such as representation rights or organisational attributes.
+
+From a deployment perspective, wallet solutions can be implemented in several ways depending on the target users, operational requirements, and cryptographic architecture. In practice, three main implementation approaches are relevant within the WE BUILD ecosystem.
+
+| Wallet type | Typical context | Characteristics |
+|---|---|---|
+| **Mobile wallets (on-device)** | Natural persons | Wallet application running on a user’s smartphone, with credentials stored and used locally on the device. |
+| **Server or Web-based wallets** | Economic operators | Wallet services operated in backend infrastructure and accessed through Web interfaces or enterprise systems. |
+| **Hybrid wallets** | Both contexts | Combine device-based interaction with backend cryptographic infrastructure. |
+
+The underlying cryptographic architecture of wallets is defined in the ARF and related standards. This Blueprint therefore focuses on the interactions and interoperability patterns relevant for WE BUILD rather than repeating the detailed wallet architecture definitions.
+
+In practice, most deployments follow a mobile-first approach for natural persons and a server-based or enterprise-integrated approach for economic operators. Hybrid architectures may also be used to combine device-based user interaction with backend cryptographic services.
