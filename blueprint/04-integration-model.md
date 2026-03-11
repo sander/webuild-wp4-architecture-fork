@@ -1,6 +1,5 @@
 # How the Wallet Interacts with Services
-
-In the interaction flows described in this chapter, the conceptual actors introduced in the previous chapter are represented by their corresponding system components. In particular, the holder interacts with services through the wallet application used to store and present attestations.
+Chapter 3 introduced the main actors in the WE BUILD ecosystem. This chapter describes how these actors interact through wallet-based service flows.
 
 ## Interaction Pattern: Attestation Issuance
 
@@ -90,6 +89,8 @@ Both approaches are compatible with the architectural patterns described in the 
 
 This section aligns with the WP4 interoperability baselines defined for issuance and presentation flows. Proximity-based signing scenarios are currently outside the baseline protocol scope of the WE BUILD pilots.
 
+In the WE BUILD pilot and ITB environment, eIDAS-qualified status cannot be achieved because the ITB operates outside the formal eIDAS certification framework. Any reference to “qualified” in WE BUILD therefore represents a technical demonstration only and does not constitute a legally valid qualified electronic signature. The prerequisites for eIDAS-qualified status remain unchanged, including use of a Qualified Signature Creation Device (QSCD) and a qualified certificate issued by a QTSP that is listed on an official national Trusted List.
+
 ### Wallet-centric Signing Model
 In the wallet-centric model, the EUDI Wallet is the central component of the electronic signature process. Three distinct signing processes are considered, depending on where the Signature Creation Application (SCA) runs and where the Signature Creation Device (SCD) is hosted. 
 
@@ -115,20 +116,15 @@ Within this architecture, the EUDI Wallet may act as a client-side orchestration
 
 In this model, the QTSP remains responsible for identity binding, credential issuance, and compliance with applicable ETSI standards. Signature or seal creation data remains under controlled conditions consistent with the required assurance level, and activation mechanisms enforce the conditions required for advanced or qualified signatures, including sole control where applicable.
 
-In the WE BUILD pilot and ITB environment, eIDAS-qualified status cannot be achieved because the ITB operates outside the formal eIDAS certification and trust framework. Any reference to “qualified” in WE BUILD therefore represents a technical demonstration only and does not constitute a legally valid qualified electronic signature. The prerequisites for eIDAS-qualified status remain unchanged, including use of a Qualified Signature Creation Device (QSCD) and a qualified certificate issued by a QTSP that is listed on an official national Trusted List.
-
 The pilot implementation aims to remain technically aligned with qualified signing requirements. Pilot trust validation is described below and relies on consortium trusted lists.
 
 ### CSC Interoperability Profile for Remote Signing and Sealing
-For remote signing and sealing flows, WE BUILD uses the Cloud Signature Consortium (CSC) interoperability framework. Remote signing/sealing services expose standardized interfaces based on CSC API, allowing wallets and client applications to interact with QTSP-operated signing services in a consistent way.
-
+For remote signing and sealing flows, WE BUILD uses the Cloud Signature Consortium (CSC) interoperability framework. CSC APIs expose standardized interfaces that allow wallets and client applications to interact with QTSP-operated signing services.
 The detailed WE BUILD CSC interoperability profile will be defined in a WBCS. That specification will describe the concrete integration details, including authorization mechanisms, endpoints, supported formats and algorithms, and interoperability constraints used in the ITB. Until such a profile is published, CSC API v2.2.0.0 serves as the base reference specification for CSC-based interactions.
 
 During the pilot phase, trust validation relies on consortium reference trust mechanisms. Wallet components or external SCAs validate participating QTSPs and trust anchors using WE BUILD trusted lists. The reference trusted list may include participating QTSP entries and their registered issuing certificate authorities for pilot purposes.
 
 When a signing request is processed, the SCA validates the signer’s certificate chain against issuing certificate authorities listed in the WE BUILD trusted list and checks the QTSP status within the pilot trust framework. Revocation status is validated using OCSP responders or CRL distribution points operated by participating QTSPs. Where registration status checks are required, registrar processes are simulated through mock registrar services and endpoints.
-
-Because WE BUILD operates in a pilot testbed outside the formal eIDAS certification framework, any reference to “qualified” represents a technical demonstration only and has no legal effect.
 
 ### Organisational Signing: Individuals Signing on Behalf of a Company
 WE BUILD supports signing scenarios where an individual signs on behalf of an organisation. This model reuses the wallet-centric and QTSP-operated signing approaches described above. The wallet provides the user interface for document review and approval, while the QTSP performs the signature or seal creation within its controlled environment. 
@@ -137,7 +133,7 @@ In these scenarios, the transaction must bind both the natural person and the or
 
 At signing time, identifiers or references to both the PID and the EBWOID are included in the transaction data presented to the user and subsequently authorised or signed. This ensures that the resulting signature or seal can be unambiguously linked to both the individual and the organisation.
 
-The exact representation of these bindings is use-case specific and will be defined in rulebooks and WBCS to ensure interoperability in the ITB.
+The exact representation of these bindings is use-case specific and will be defined in rulebooks and WBCS (see Chapter 5 for the semantic and schema model).
 
 ## Secure Communication Channel
 This section describes how secure message exchange is integrated into the WE BUILD wallet ecosystem.
