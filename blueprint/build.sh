@@ -3,7 +3,7 @@
 
 function setup() {
     # Set up Ruby environment to make kramdoc/asciidoc available:
-    sudo apt install -y ruby-dev ruby-bundler
+    sudo apt install -y ruby-dev ruby-bundler unzip wget
     bundle install
 
     # Set up Python environment
@@ -39,6 +39,34 @@ function table_width() {
     TMP_FILE=$(mktemp)
     awk 'NR=='${LINE}'{print "[cols=\"'$2'\"]"}1' main.adoc > ${TMP_FILE}
     mv ${TMP_FILE} main.adoc
+}
+
+function collect_qtsp_appendix() {
+    if [ ! -f qtsp-main.zip ]; then
+	wget https://github.com/webuild-consortium/wp4-qtsp-group/archive/refs/heads/main.zip -O qtsp-main.zip
+	unzip qtsp-main.zip
+    fi
+    rm -f appendix-qtsp.md && touch appendix-qtsp.md
+    BUILD_DIR=${PWD}
+    QTSP_MD=$(realpath appendix-qtsp.md)
+    pushd wp4-qtsp-group-main/docs
+    echo '# Appendix F. QTSP documentation' >> ${QTSP_MD}
+    # echo >> ${QTSP_MD}
+    # echo 'This is documentation of the [WE BUILD: WP4 QTSP group](../README.md).' >> ${QTSP_MD}
+    for README in qes/README.md qeaa/README.md qerds/README.md rwscd/README.md rpac-rprc/README.md; do
+	echo >> ${QTSP_MD}
+	cat ${README} | indent_headers >> ${QTSP_MD}
+	echo >> ${QTSP_MD}
+    done
+    sed -i -e 's/..\/README.md/https:\/\/github.com\/webuild-consortium\/wp4-qtsp-group\/blob\/main\/README.md/g' ${QTSP_MD}
+    for MD in architecture.md issuance-to-eudiw.feature.md validation.feature.md verification.feature.md rb0xx_hello_world_attestation.md; do
+	sed -i -e "s/${MD}/https:\/\/github.com\/webuild-consortium\/wp4-qtsp-group\/blob\/main\/docs\/qeaa\/${MD}/g" ${QTSP_MD}
+    done
+    for IMAGE in $(find . -name "*.svg"); do
+	echo "Copying: ${IMAGE}"
+	cp ${IMAGE} ${BUILD_DIR}
+    done
+    popd
 }
 
 export GEM_HOME="$HOME/gems"
@@ -92,6 +120,10 @@ cat appendix-ebw-definition.md >> main.md
 
 echo >> main.md
 cat appendix-wallet-implementation-models.md >> main.md
+
+collect_qtsp_appendix
+echo >> main.md
+cat appendix-qtsp.md >> main.md
 
 # ADR appendix, gathers all ADRs
 echo >> main.md
